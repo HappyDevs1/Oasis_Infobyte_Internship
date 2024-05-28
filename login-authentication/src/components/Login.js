@@ -9,7 +9,7 @@ function Login() {
     }
   ]);
   const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("")
+  const [password, setPassword] = useState(null)
 
   const handleEmailInput = (event) => {
     setEmail(event.target.value)
@@ -18,23 +18,27 @@ function Login() {
     setPassword(event.target.value)
   }
 
-  const handleSubmit = (user) => {
-    if (user.email === email && user.password === password) {
-      console.log("Logged in successfully")
-    } else {
-      console.log("Incorrect email or password")
-    }
+  const handleSubmit = (event) => {
+    event.preventDefault();
+  }
+
+  const foundUser = user.find((user) => user.email === email && user.password === password);
+  
+  if (foundUser) {
+    console.log("Logged in successfully")
+  } else {
+    console.log("Incorrect email or username")
   }
 
   return (
-    <div onSubmit={handleSubmit}>
-      <form>
+    <div>
+      <form onSubmit={handleSubmit}>
         <h1>Login Page</h1>
         <label>Email</label>
         <input type="text" value={email} onChange={handleEmailInput} />
         <br />
         <label>Password</label>
-        <input type="text" value={password} onChange={handlePasswordInput} />
+        <input type="password" value={password} onChange={handlePasswordInput} />
         <br/>
         <button>Login</button>
       </form>
