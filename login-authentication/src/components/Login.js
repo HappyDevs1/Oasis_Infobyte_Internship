@@ -1,34 +1,28 @@
 import React, { useState } from "react";
+import { useHistory } from 'react-router-dom';
 
-function Login() {
-  const [user, setUser] = useState([
-    {
-      id: 1,
-      email: "happy20@gmail.com",
-      password: "Happy123"
-    }
-  ]);
+function Login({ handleLogin }) {
   const [email, setEmail] = useState("");
-  const [password, setPassword] = useState(null)
+  const [password, setPassword] = useState("");
+
+  const history = useHistory();
 
   const handleEmailInput = (event) => {
-    setEmail(event.target.value)
-  }
+    setEmail(event.target.value);
+  };
+
   const handlePasswordInput = (event) => {
-    setPassword(event.target.value)
-  }
+    setPassword(event.target.value);
+  };
 
   const handleSubmit = (event) => {
     event.preventDefault();
-  }
-
-  const foundUser = user.find((user) => user.email === email && user.password === password);
-  
-  if (foundUser) {
-    console.log("Logged in successfully")
-  } else {
-    console.log("Incorrect email or username")
-  }
+    if (handleLogin(email, password)) {
+      history.push("/dashboard");
+    } else {
+      console.log("Incorrect email or password");
+    }
+  };
 
   return (
     <div>
@@ -38,9 +32,9 @@ function Login() {
         <input type="text" value={email} onChange={handleEmailInput} />
         <br />
         <label>Password</label>
-        <input type="password" value={password} onChange={handlePasswordInput} />
+        <input type="password" value={password || ""} onChange={handlePasswordInput} />
         <br/>
-        <button>Login</button>
+        <button type="submit">Login</button>
       </form>
     </div>
   );
