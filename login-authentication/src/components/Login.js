@@ -4,6 +4,7 @@ import axios from 'axios';
 function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [loggedIn, setLoggedIn] = useState(false);
 
 
   const handleEmailInput = (event) => {
@@ -14,24 +15,30 @@ function Login() {
     setPassword(event.target.value);
   };
 
-  const findUserById = () => {
-    const endpoint = "http://localhost:3000/users";
-    axios.get(endpoint)
-  }
+  const endpoint = "http://localhost:3000/users";
 
-  const compareUser = (id) => {
-    findUserById(id)
-    .then((user) => {
-      if (user.email === email && user.password === password) {
-        console.log("Logged in successfully");
-      } else {
-        console.log("User not found");
-      }
-    });
+  const compareUserData = () => {
+    axios(endpoint)
+    .then((response) => {
+      response.data.indexOf((user) => {
+        // console.log(user.email)
+        if (email === user.email && password === user.password) {
+          alert("Login sucessful");
+          setLoggedIn(true);
+        } else {
+          alert("Loggin in failed")
+        }
+      })
+    })
+    .catch((error) => {
+      console.log(error)
+    })
   }
   const handleSubmit = (event) => {
     event.preventDefault();
-    compareUser();
+    compareUserData();
+    setEmail("");
+    setPassword("");
   };
 
   return (
