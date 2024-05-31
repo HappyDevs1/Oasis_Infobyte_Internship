@@ -34,6 +34,13 @@
       "surname": "Mark",
       "email": "dave49@gmail.com",
       "password": "Dave12345"
+    },
+    {
+      "id": "56b6c504-d3bc-4e4b-bf53-549195bc3cad",
+      "name": "Nyakallo",
+      "surname": "Mahlangu",
+      "email": "nyakallo23@gmail.com",
+      "password": "Nyakallo12345"
     }
   ]
 }

@@ -1,11 +1,10 @@
 import React, { useState } from "react";
-import { useHistory } from 'react-router-dom';
+import axios from 'axios';
 
-function Login({ handleLogin }) {
+function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  const history = useHistory();
 
   const handleEmailInput = (event) => {
     setEmail(event.target.value);
@@ -15,18 +14,25 @@ function Login({ handleLogin }) {
     setPassword(event.target.value);
   };
 
+  const findUserById = () => {
+    const endpoint = "http://localhost:3000/users";
+    axios.get(endpoint)
+  }
+
+  const compareUser = (id) => {
+    findUserById(id)
+    .then((user) => {
+      if (user.email === email && user.password === password) {
+        console.log("Logged in successfully");
+      } else {
+        console.log("User not found");
+      }
+    });
+  }
   const handleSubmit = (event) => {
     event.preventDefault();
-    authenticateUser();
+    compareUser();
   };
-
-  const authenticateUser = (data) => {
-    if(data.user.email === email && data.user.password) {
-      console.log("Login successful")
-    } else {
-      console.log("Login failed")
-    }
-  }
 
   return (
     <div>
@@ -36,8 +42,12 @@ function Login({ handleLogin }) {
         <input type="text" value={email} onChange={handleEmailInput} />
         <br />
         <label>Password</label>
-        <input type="password" value={password || ""} onChange={handlePasswordInput} />
-        <br/>
+        <input
+          type="password"
+          value={password || ""}
+          onChange={handlePasswordInput}
+        />
+        <br />
         <button type="submit">Login</button>
       </form>
     </div>
