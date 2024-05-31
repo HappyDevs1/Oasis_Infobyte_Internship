@@ -1,13 +1,9 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 
 function Landing() {
-  return(
+  return (
     <div>
-      <h1>Welcome to the Landing Page</h1>
-      <Link to="/login">
-      <button>Login</button>
-      </Link>
+      <h1>Welcome, Please Login or create a new account</h1>
     </div>
   )
 }

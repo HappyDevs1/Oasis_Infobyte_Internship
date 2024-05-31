@@ -1,0 +1,295 @@
+/* General styles */
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+}
+
+h1, h2 {
+  color: #333;
+}
+
+p {
+  color: #666;
+  line-height: 1.6;
+}
+
+/* Navbar styles */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #333;
+  padding: 10px 20px;
+}
+
+.logo {
+  font-size: 24px;
+  font-weight: bold;
+  color: #fff;
+}
+
+.nav-links {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+}
+
+.nav-links li {
+  margin: 0 15px;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: #fff;
+  font-size: 18px;
+  transition: color 0.3s;
+}
+
+.nav-links a:hover {
+  color: #f0a500;
+}
+
+.hamburger {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+}
+
+.hamburger span {
+  height: 3px;
+  width: 25px;
+  background: #fff;
+  margin: 4px;
+  border-radius: 5px;
+}
+
+@media (max-width: 768px) {
+  .nav-links {
+      display: none;
+      position: absolute;
+      background-color: #333;
+      top: 60px;
+      right: 0;
+      width: 100%;
+      flex-direction: column;
+      align-items: center;
+  }
+
+  .nav-links li {
+      margin: 15px 0;
+  }
+
+  .nav-links.active {
+      display: flex;
+  }
+
+  .hamburger {
+      display: flex;
+  }
+}
+
+/* Home section styles */
+.home {
+  padding: 100px 20px;
+  background: url('path/to/your/background-image.jpg') no-repeat center center/cover;
+  color: #fff;
+  text-align: center;
+}
+
+.home .container {
+  max-width: 800px;
+  margin: auto;
+}
+
+.home h1 {
+  font-size: 48px;
+  margin-bottom: 20px;
+}
+
+.home p {
+  font-size: 24px;
+}
+
+/* About section styles */
+.about {
+  padding: 50px 20px;
+  background-color: #f4f4f4;
+}
+
+.about .container {
+  max-width: 1000px;
+  margin: auto;
+}
+
+.about .bio {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  text-align: left;
+}
+
+.about .image {
+  flex: 1;
+  min-width: 300px;
+  max-width: 400px;
+  margin: 10px;
+}
+
+.about .image img {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+}
+
+.about .text {
+  flex: 2;
+  min-width: 300px;
+  max-width: 600px;
+  margin: 10px;
+}
+
+.about .text p {
+  font-size: 18px;
+}
+
+/* Achievements section styles */
+.achievements {
+  padding: 50px 20px;
+  background-color: #fff;
+}
+
+.achievements .container {
+  max-width: 800px;
+  margin: auto;
+  text-align: center;
+}
+
+.achievements h2 {
+  margin-bottom: 20px;
+}
+
+.achievements ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.achievements li {
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+/* Similarities section styles */
+.similarities {
+  padding: 50px 20px;
+  background-color: #f4f4f4;
+}
+
+.similarities .container {
+  max-width: 800px;
+  margin: auto;
+  text-align: center;
+}
+
+.similarities h2 {
+  margin-bottom: 20px;
+}
+
+.similarities p {
+  font-size: 18px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .about .bio {
+      flex-direction: column;
+      text-align: center;
+  }
+
+  .about .image,
+  .about .text {
+      max-width: 100%;
+  }
+}
+/* Footer styles */
+.footer {
+  background-color: #333;
+  color: #fff;
+  padding: 30px 20px;
+  position: relative;
+  bottom: 0;
+  width: 100%;
+}
+
+.footer .container {
+  max-width: 1000px;
+  margin: auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.footer-content {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.footer-section {
+  flex: 1;
+  margin: 10px;
+  min-width: 250px;
+}
+
+.footer-section h2 {
+  font-size: 20px;
+  margin-bottom: 15px;
+  color: #f0a500;
+}
+
+.footer-section p, .footer-section ul, .footer-section a {
+  font-size: 16px;
+  color: #ccc;
+  line-height: 1.8;
+  text-decoration: none;
+}
+
+.footer-section a:hover {
+  color: #f0a500;
+}
+
+.footer-section ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-section ul li {
+  margin-bottom: 10px;
+}
+
+.footer-bottom {
+  text-align: center;
+  padding: 10px 0;
+  border-top: 1px solid #444;
+  margin-top: 20px;
+}
+
+.footer-bottom p {
+  margin: 0;
+  font-size: 14px;
+  color: #ccc;
+}
+
+/* Responsive adjustments for footer */
+@media (max-width: 768px) {
+  .footer-content {
+      flex-direction: column;
+      text-align: center;
+  }
+
+  .footer-section {
+      margin: 20px 0;
+  }
+}

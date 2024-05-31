@@ -7,7 +7,6 @@ function App() {
   const [pendingTodos, setPendingTodos] = useState([]);
   const [completedTodos, setCompletedTodos] = useState([]);
 
-  // Load todos from localStorage
   useEffect(() => {
     const storedPendingTodos = JSON.parse(localStorage.getItem('pendingTodos')) || [];
     const storedCompletedTodos = JSON.parse(localStorage.getItem('completedTodos')) || [];
@@ -15,7 +14,6 @@ function App() {
     setCompletedTodos(storedCompletedTodos);
   }, []);
 
-  // Save todos to localStorage whenever they change
   useEffect(() => {
     localStorage.setItem('pendingTodos', JSON.stringify(pendingTodos));
     localStorage.setItem('completedTodos', JSON.stringify(completedTodos));

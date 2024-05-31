@@ -17,12 +17,16 @@ function Login({ handleLogin }) {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    if (handleLogin(email, password)) {
-      history.push("/dashboard");
-    } else {
-      console.log("Incorrect email or password");
-    }
+    authenticateUser();
   };
+
+  const authenticateUser = (data) => {
+    if(data.user.email === email && data.user.password) {
+      console.log("Login successful")
+    } else {
+      console.log("Login failed")
+    }
+  }
 
   return (
     <div>
