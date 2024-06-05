@@ -1,13 +1,9 @@
-import React from 'react';
-import Signup from './components/Signup';
-import Login from './components/Login'
+import LoginSignup from "./Components/LoginSignup/LoginSignup";
 
 function App() {
-  return(
+  return (
     <div>
-      <Login />
+      <LoginSignup />
     </div>
   )
 }
-
-export default App;
