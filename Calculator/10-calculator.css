@@ -1,0 +1,42 @@
+body {
+background-color: black;
+font-family: Arial;
+}
+.left-button{
+background-color: rgb(50, 50, 50);
+color: white;
+font-size: 26px;
+font-family: Arial;
+border: none;
+height: 60px;
+width: 60px;
+border-radius: 30px;
+margin-right: 5px;
+}
+.clear-button{
+background-color: rgb(50, 50, 50);
+color: white;
+font-size: 17px;
+font-family: Arial;
+border: none;
+height: 60px;
+width: 60px;
+border-radius: 30px;
+margin-right: 5px;
+}
+.right-button {
+background-color: orange;
+color: white;
+font-size: 26px;
+font-family: Arial;
+border: none;
+height: 60px;
+width: 60px;
+border-radius: 30px;
+}
+.calculation-text {
+color: white;
+font-size: 45px;
+margin-bottom: 0px;
+margin-top: 15px;
+}
